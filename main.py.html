@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">aiogram </span><span class="s0">import </span><span class="s1">Bot</span><span class="s0">, </span><span class="s1">Dispatcher</span><span class="s0">, </span><span class="s1">executor</span><span class="s0">, </span><span class="s1">types</span>
+<span class="s0">from </span><span class="s1">aiogram.types.web_app_info </span><span class="s0">import </span><span class="s1">WebAppInfo</span>
+
+<span class="s1">bot = Bot(</span><span class="s2">'6866185903:AAFiYEuXA3T9bUqiwUlfXxMB4J_l3SEEuXI'</span><span class="s1">)</span>
+<span class="s1">dp = Dispatcher (bot)</span>
+
+<span class="s1">@dp.message_handler(commands=[</span><span class="s2">'start'</span><span class="s1">])</span>
+<span class="s0">async def </span><span class="s1">start(message: types.Message):</span>
+    <span class="s1">markup = types.ReplyKeyboardMarkup ()</span>
+    <span class="s1">markup.add(types.KeyboardButton(</span><span class="s2">'Открыть веб страницу'</span><span class="s0">, </span><span class="s1">web_app=WebAppInfo(url=</span><span class="s2">'https://www.google.com'</span><span class="s1">)))</span>
+    <span class="s0">await </span><span class="s1">message.answer(</span><span class="s2">'Привет!'</span><span class="s0">, </span><span class="s1">reply_markup=markup)</span>
+
+
+<span class="s1">executor.start_polling(dp)</span>
+</pre>
+</body>
+</html>
